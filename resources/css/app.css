@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary-50: #eef2ff;
+        --color-primary-100: #e0e7ff;
+        --color-primary-200: #c7d2fe;
+        --color-primary-300: #a5b4fc;
+        --color-primary-400: #818cf8;
+        --color-primary-500: #6366f1;
+        --color-primary-600: #4f46e5;
+        --color-primary-700: #4338ca;
+        --color-primary-800: #3730a3;
+        --color-primary-900: #312e81;
+        --color-surface: #ffffff;
+        --color-background: #f8fafc;
+        --color-error: #dc2626;
+        --color-on-error: #ffffff;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: #1e293b;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #0f172a;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+    }
+
+    /* Material Design Elevation Shadows */
+    .elevation-1 {
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 1px rgb(0 0 0 / 0.08);
+    }
+    .elevation-2 {
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 2px 6px 2px rgb(0 0 0 / 0.1);
+    }
+    .elevation-3 {
+        box-shadow: 0 4px 8px 3px rgb(0 0 0 / 0.08), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+    }
+    .elevation-4 {
+        box-shadow: 0 6px 10px 4px rgb(0 0 0 / 0.08), 0 2px 3px 0 rgb(0 0 0 / 0.06);
+    }
+    .elevation-5 {
+        box-shadow: 0 8px 12px 6px rgb(0 0 0 / 0.08), 0 3px 4px 0 rgb(0 0 0 / 0.04);
+    }
+
+    /* Material Input Styling */
+    .md-input {
+        @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 transition-colors duration-200;
+        @apply focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+    }
+
+    .md-input:disabled {
+        @apply bg-slate-100 text-slate-500 cursor-not-allowed;
+    }
+
+    /* Material Select Styling */
+    .md-select {
+        @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-800 transition-colors duration-200;
+        @apply focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+    }
+
+    /* Material Checkbox Styling */
+    input[type="checkbox"] {
+        @apply h-4 w-4 rounded border-slate-300 text-primary-600 focus:ring-primary-500;
+    }
+
+    /* Material Radio Styling */
+    input[type="radio"] {
+        @apply h-4 w-4 border-slate-300 text-primary-600 focus:ring-primary-500;
+    }
+
+    /* Material Focus Visible */
+    *:focus-visible {
+        @apply outline-none ring-2 ring-primary-500/40 ring-offset-2;
+    }
+}
+
+@layer components {
+    /* Material Button - Contained */
+    .md-btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-200;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98];
+    }
+
+    .md-btn-primary {
+        @apply md-btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 1px rgb(0 0 0 / 0.08);
+    }
+
+    .md-btn-outlined {
+        @apply md-btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-400;
+    }
+
+    .md-btn-text {
+        @apply md-btn bg-transparent text-primary-700 hover:bg-primary-50 focus:ring-primary-500;
+    }
+
+    .md-btn-danger {
+        @apply md-btn bg-error text-white hover:bg-red-700 focus:ring-red-500;
+    }
+
+    .md-btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    /* Material Card */
+    .md-card {
+        @apply bg-white rounded-xl border border-slate-200/80;
+    }
+
+    .md-card-elevated {
+        @apply md-card elevation-2;
+    }
+
+    .md-card-outlined {
+        @apply md-card border border-slate-200;
+        box-shadow: none;
+    }
+
+    /* Material Badge / Chip */
+    .md-badge {
+        @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
+    }
+
+    .md-badge-primary {
+        @apply md-badge bg-primary-100 text-primary-800;
+    }
+
+    .md-badge-success {
+        @apply md-badge bg-emerald-100 text-emerald-800;
+    }
+
+    .md-badge-warning {
+        @apply md-badge bg-amber-100 text-amber-800;
+    }
+
+    .md-badge-error {
+        @apply md-badge bg-red-100 text-red-800;
+    }
+
+    .md-badge-neutral {
+        @apply md-badge bg-slate-100 text-slate-700;
+    }
+
+    /* Material Table */
+    .md-table-container {
+        @apply md-card-elevated overflow-hidden;
+    }
+
+    .md-table {
+        @apply min-w-full divide-y divide-slate-200 text-sm;
+    }
+
+    .md-table thead {
+        @apply bg-slate-50;
+    }
+
+    .md-table th {
+        @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-slate-500;
+    }
+
+    .md-table td {
+        @apply px-4 py-3 text-sm text-slate-700;
+    }
+
+    .md-table tbody tr {
+        @apply transition-colors duration-150 hover:bg-slate-50/80;
+    }
+
+    /* Material Form Group */
+    .md-form-group {
+        @apply space-y-1.5;
+    }
+
+    .md-form-label {
+        @apply block text-sm font-medium text-slate-700;
+    }
+
+    .md-form-helper {
+        @apply mt-1 text-xs text-slate-500;
+    }
+
+    .md-form-error {
+        @apply mt-1.5 text-xs text-red-600;
+    }
+
+    /* Material Divider */
+    .md-divider {
+        @apply border-t border-slate-200;
+    }
+
+    /* Material App Bar */
+    .md-app-bar {
+        @apply bg-white border-b border-slate-200;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+    }
+
+    /* Material Navigation Drawer */
+    .md-drawer {
+        @apply bg-white border-r border-slate-200;
+    }
+
+    .md-nav-item {
+        @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors duration-150;
+    }
+
+    .md-nav-item:hover {
+        @apply bg-slate-50 text-slate-900;
+    }
+
+    .md-nav-item.active {
+        @apply bg-primary-50 text-primary-700;
+    }
+
+    /* Material FAB (Floating Action Button) */
+    .md-fab {
+        @apply fixed bottom-6 right-6 h-14 w-14 rounded-full bg-primary-600 text-white shadow-lg;
+        @apply flex items-center justify-center hover:bg-primary-700 active:scale-95 transition-all duration-200;
+        box-shadow: 0 6px 10px 4px rgb(0 0 0 / 0.08), 0 3px 4px 0 rgb(0 0 0 / 0.04);
+    }
+
+    /* Material Search Field */
+    .md-search {
+        @apply relative;
+    }
+
+    .md-search input {
+        @apply w-full rounded-lg border border-slate-300 bg-white pl-10 pr-4 py-2 text-sm;
+        @apply focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20;
+    }
+
+    .md-search-icon {
+        @apply absolute left-3 top-1/2 -translate-y-1/2 text-slate-400;
+    }
+
+    /* Material Alert */
+    .md-alert {
+        @apply rounded-lg border px-4 py-3 text-sm;
+    }
+
+    .md-alert-success {
+        @apply md-alert border-emerald-200 bg-emerald-50 text-emerald-800;
+    }
+
+    .md-alert-error {
+        @apply md-alert border-red-200 bg-red-50 text-red-800;
+    }
+
+    .md-alert-info {
+        @apply md-alert border-blue-200 bg-blue-50 text-blue-800;
+    }
+
+    .md-alert-warning {
+        @apply md-alert border-amber-200 bg-amber-50 text-amber-800;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .scrollbar-thin {
+        scrollbar-width: thin;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+    }
+}
