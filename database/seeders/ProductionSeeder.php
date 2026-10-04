@@ -21,7 +21,7 @@ class ProductionSeeder extends Seeder
         $motDePasse = Str::password(14, true, true, false);
 
         $admin = User::firstOrCreate(
-            ['email' => 'votre.vrai@courriel.com'], // remplacez par votre courriel
+            ['email' => 'admin@ci.cm'], // remplacez par votre courriel
             [
                 'name' => 'Administrateur',
                 'password' => $motDePasse,
